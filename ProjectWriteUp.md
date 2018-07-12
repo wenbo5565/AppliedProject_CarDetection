@@ -44,11 +44,20 @@ Here is an example using the `RGB` color space and HOG parameters of `orientatio
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+Whether HOG features are good or not depends on its performance in the classification stage. So I put different combinations of HOG parameters in the classifiers and find the following parameters achieve 99%-100% accuracy on training set. This indicates the selected HOG features lead to a low-bias model.
 
-#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+| Parameters        | Value   | 
+|:-------------:|:-------------:| 
+| orientations      | 9        | 
+| pixels_per_cell   | (8,8)      |
+| cells_per_block   | (2,2)      |
 
-I trained a linear SVM using...
+
+
+
+#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features
+
+I trained a RBF-kernel SVM using HOG features only.
 
 ### Sliding Window Search
 
