@@ -90,7 +90,7 @@ I use heatmap method to filter false positive detections and to combine overlapp
   - Apply `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap. We assum each blob corresponded to a vehicle. We construct bounding boxes to cover the area of each blob detected.
 
 
-Here's an example result showing the heatmap from a frame, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the frame
+Here's an example result showing the heatmap from a series of frames, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the frame
 
 ### Here are six frames and their corresponding heatmaps:
 
