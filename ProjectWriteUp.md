@@ -5,7 +5,7 @@
 
 The goals of this project are the following:
 
-* Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier to detect if an image is a car.
+* Perform a Histogram of Oriented Gradients (HOG) feature extraction, possibly combined with color histogram and bin spatial features  on a labeled training set of images and train a classifier to detect if an image is a car.
 * Implement a sliding-window technique and use trained classifier to search for vehicles in images.
 * Develop an pipeline to detect vehicles on a video stream and create a heat map of recurring detections frame by frame to reject outliers.
 * Estimate a bounding box for vehicles detected.
