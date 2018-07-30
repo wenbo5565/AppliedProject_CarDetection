@@ -53,7 +53,7 @@ Whether HOG features are good or not depends on its performance in the classific
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features
 
-I trained a RBF-kernel SVM using HOG features only. The original data is split into training and testing set. The training set takes 70% of the data and the testing set takes the remaining 30%. As both the training accuracy (~99%) and the testing accuracy (>98%) are alreday satisfactory, I didn't spend much time on tune the hyper-parameters. All hyper-parameters are set at the default value. 
+I trained a linear-kernel SVM using HOG features and color histogram features (RGB channel with 32bins). The original data is split into training and testing set. The training set takes 70% of the data and the testing set takes the remaining 30%. As both training accuracy (~99%) and testing accuracy (>98%) are alreday satisfactory, I didn't spend much time on tuning hyper-parameters of the linear SVM. All hyper-parameters are set at default values. 
 
 ### Sliding Window Search
 
