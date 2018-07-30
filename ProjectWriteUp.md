@@ -62,13 +62,13 @@ Since the further vehicles are, the smaller they appear, I implement two scales 
   - The first scale is 64*64 for area covered by (y:[400-550])
   - The second scale is 96*96 for area covered by (y:[450-700])
   
-<img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/windowsearch.png" height="60%" width="60%">
+<img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/windowsearch.png" height="80%" width="80%">
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-<img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/testimages.png" height="100%" width="100%">
+<img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/testimages.png" height="80%" width="80%">
 
 ---
 
