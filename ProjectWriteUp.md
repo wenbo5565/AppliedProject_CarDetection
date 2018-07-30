@@ -59,8 +59,12 @@ I trained a linear-kernel SVM using HOG features and color histogram features (R
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+Since roads only appera at bottom half in the current camera, my entire search area is the bottom half frame (y:[400-700])
 
+Since the further vehicles are, the smaller they appear, I implement two scales window search:
+  - The first scale is 64*64 for area covered by (y:[400-550])
+  - The second scale is 96*96 for area covered by (y:[450-700])
+  
 ![alt text][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
@@ -78,9 +82,14 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+I use heatmap method to filter false positive detections and to combine overlapping bounding boxes. The steps are
+  - Create an array of zeros. The shape is same as one-channel frame
+  - Iterate over each positve search window. Add one to each pixel within the search window
+  - Iterate over each pixel in the array. Apply thresholding by setting pixel equal to 0 for those having values less than the pre-specified threshold.
+  - Apply `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap. We assum each blob corresponded to a vehicle. We construct bounding boxes to cover the area of each blob detected.
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+
+Here's an example result showing the heatmap from a frame, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the frame
 
 ### Here are six frames and their corresponding heatmaps:
 
