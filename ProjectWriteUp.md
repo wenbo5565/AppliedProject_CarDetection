@@ -21,7 +21,7 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+The code for this step is contained in the code cell [5,6] of the [IPython notebook](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Object%20Detection.ipynb)
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -63,6 +63,8 @@ Since the further vehicles are, the smaller they appear, I implement two scales 
   - The second scale is 96*96 for area covered by (y:[450-700])
   
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/windowsearch.png" height="80%" width="80%">
+
+The code for this step is contained in the code cell [30] of the [IPython notebook](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Object%20Detection.ipynb)
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
