@@ -7,4 +7,4 @@ Project for Vehicle Detection in Computer Vision
 
 [Project WriteUp](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/ProjectWriteUp.md)
 
-[Project Output Video](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/project_output_video.mp4)
+[Project Output Video](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/project_output_video_2.mp4)
