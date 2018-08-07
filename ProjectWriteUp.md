@@ -59,9 +59,9 @@ I trained a linear-kernel SVM using HOG features and color histogram features (R
 Since roads only appera at bottom half in the current camera, my entire search area is the bottom half frame (y:[400-700])
 
 Since the further vehicles are, the smaller they appear, I implement two scales window search:
-  - The first scale is 1.0 for area covered by (y:[400-600])
-  - The second scale is 1.5 for area covered by (y:[400-650])
-  - The second scale is 2.5 for area covered by (y:[500-700])
+  - The first scale is 1 for area covered by y:[390-500]
+  - The second scale is 1.5 for area covered by y:[400-600]
+  - The third scale is 2 for area covered by y:[450-650]
   
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/windowsearch.png" height="80%" width="80%">
 
