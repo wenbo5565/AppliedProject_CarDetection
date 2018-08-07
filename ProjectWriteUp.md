@@ -21,7 +21,7 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the code cell [5,6] of the [IPython notebook](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Object%20Detection.ipynb)
+The code for this step is contained in the section HOG transformation of the [IPython notebook](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Object%20Detection.ipynb)
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -29,7 +29,7 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YUV` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `YCrCb` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/hog.png" height="60%" width="60%">
 
@@ -50,7 +50,7 @@ Whether HOG features are good or not depends on its performance in the classific
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features
 
-I trained a linear-kernel SVM using HOG features and color histogram features (RGB channel with 32bins). The original data is split into training and testing set. The training set takes 70% of the data and the testing set takes the remaining 30%. As both training accuracy (~99%) and testing accuracy (>98%) are alreday satisfactory, I didn't spend much time on tuning hyper-parameters of the linear SVM. All hyper-parameters are set at default values. 
+I trained a linear-kernel SVM using HOG features, color histogram and bin-spatial features (YCrCb channel). The original data is split into training and testing set. The training set takes 80% of the data and the testing set takes the remaining 20%. As both training accuracy (~99%) and testing accuracy (>98%) are alreday satisfactory, I didn't spend much time on tuning hyper-parameters of the linear SVM. All hyper-parameters are set at default values. 
 
 ### Sliding Window Search
 
@@ -65,11 +65,11 @@ Since the further vehicles are, the smaller they appear, I implement two scales 
   
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/windowsearch.png" height="80%" width="80%">
 
-The code for this step is contained in the code cell [30] of the [IPython notebook](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Object%20Detection.ipynb)
+The code for this step is contained in the section Slide Window Search of the [IPython notebook](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Object%20Detection.ipynb)
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-I searched on two scales using RGB 3-channel HOG features plus histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+I use three scales search. Here are some example images:
 
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/testimages.png" height="80%" width="80%">
 
@@ -80,7 +80,7 @@ I searched on two scales using RGB 3-channel HOG features plus histograms of col
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 
 
-[![Video on Youtube](http://img.youtube.com/vi/YfJCT0hr6yk/0.jpg)](https://youtu.be/YfJCT0hr6yk)
+[Project output video](https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/project_output_video.mp4)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -113,5 +113,7 @@ Here's an example result showing the heatmap from a frame <!--a series of frames
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-I found bounding boxes are not smooth from frame to frame. For detecting any bounding box for current frame, I haven't leverage any information from previous frames. If I can think of some way to use the information, bounding box would become more smooth from frame to frame.
+I found bounding boxes are flickering from frame to frame. To solve this issue, I keep track of previous 15 detected heatmaps and average over them to obtain a heatmap for the current frame. The flickering effect becomes less sever.
+
+The mannual feature extractions and slide-window-search approach is time-consuming. In addition, all the extracted features might be overfitted only to this specific camera (lightness condition and perspective). If time permitted, I would try the neural network approach.
 
