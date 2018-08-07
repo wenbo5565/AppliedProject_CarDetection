@@ -29,7 +29,7 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `RGB` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `YUV` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/hog.png" height="60%" width="60%">
 
@@ -59,8 +59,9 @@ I trained a linear-kernel SVM using HOG features and color histogram features (R
 Since roads only appera at bottom half in the current camera, my entire search area is the bottom half frame (y:[400-700])
 
 Since the further vehicles are, the smaller they appear, I implement two scales window search:
-  - The first scale is 64*64 for area covered by (y:[400-550])
-  - The second scale is 96*96 for area covered by (y:[450-700])
+  - The first scale is 1.0 for area covered by (y:[400-600])
+  - The second scale is 1.5 for area covered by (y:[400-650])
+  - The second scale is 2.5 for area covered by (y:[500-700])
   
 <img src="https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/windowsearch.png" height="80%" width="80%">
 
@@ -78,7 +79,6 @@ I searched on two scales using RGB 3-channel HOG features plus histograms of col
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 
-**Output Video on Youtube - Click to View**
 
 [![Video on Youtube](http://img.youtube.com/vi/YfJCT0hr6yk/0.jpg)](https://youtu.be/YfJCT0hr6yk)
 
