@@ -1,5 +1,5 @@
-#### Computer Vision Application Project - Vechile Detection
-Project for Vehicle Detection in Computer Vision 
+#### Computer Vision Application Project - Vehicle Tracking
+
 
 ======== for submission =============
 
