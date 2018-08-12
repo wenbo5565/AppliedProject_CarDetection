@@ -1,10 +1,16 @@
 ### Computer Vision Application Project - Vehicle Tracking
 
+by Wenbo Ma
+
 #### Overview
 
 Vehicle tracking is an important component function for a self-driving car system. It enables a car to perceive surrounding environment and provide input data for subsequent path-planning and motion control component. In this project, we build a software pipeline to track nearby vehicles via a front-facing camera. We leverage classifical computer vision techniques such as histogram-of-gradients (HOG) transformation to extract effective features from images. We use linear support vector machines (SVM) to predict whether a sub-region of an image is a car. We test our pipeline in a recorded video and it performs well.
 
 Here is a sub-clip of our test result
+
+<p align='center'>
+  <img src = "https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/upload.gif">
+</p>
 
 #### Technical summary
 
