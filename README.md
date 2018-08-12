@@ -9,7 +9,7 @@ Vehicle tracking is an important component function for a self-driving car syste
 Here is a sub-clip of our test result
 
 <p align='center'>
-  <img src = "https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/upload.gif">
+  <img src = "https://github.com/wenbo5565/AppliedProject_CarDetection/blob/master/Images/upload.gif" height="85%" width="70%">
 </p>
 
 #### Technical summary
