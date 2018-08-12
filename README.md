@@ -1,5 +1,6 @@
+<p align='center'>
 #### Computer Vision Application Project - Vehicle Tracking
-
+</p>
 
 ======== for submission =============
 
